@@ -134,12 +134,19 @@ def rating_post(
     ):
     return evaluate.add_rating(reservation_id, stars, comment, accommodation_id)
 
-@app.get("/reservations/{reservation_id}/rating")
+@app.get("/reservations/rating")
 def rating_post(
         reservation_id:str,
         accommodation_id:str,
     ):
     return evaluate.get_rating(reservation_id, accommodation_id)
+
+@app.get("/reservations/exist/rating")
+def rating_post(
+        reservation_id:str,
+        accommodation_id:str,
+    ):
+    return evaluate.not_exist_rating(reservation_id, accommodation_id)
 
 
 @app.get("/accommodation/list")
