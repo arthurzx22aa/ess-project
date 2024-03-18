@@ -14,6 +14,7 @@ export class RatingComponent {
   reservation:any;
   name: any;
   loc: string = 'reserv';
+  erro!:string 
 
   constructor(private serviceMngt: ManegementService, private route: ActivatedRoute, private rt: Router, private location: Location){
 
@@ -52,7 +53,8 @@ export class RatingComponent {
         next: (res:any)=>{
           console.log(res,'response')},
         error: (err:any)=>{
-          console.log(err, 'error')
+          this.erro = err.error.detail
+          console.log(this.erro)
         }
       });
 
